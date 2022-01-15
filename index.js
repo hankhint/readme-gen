@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require("inquirer");
 const generatePage = require('./utils/generateMarkdown');
+const fs = require('fs');
+const generateMarkdown = require("./utils/generateMarkdown");
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -138,10 +140,12 @@ const questions = [
 // console.log(mypromise)
 
 inquirer
+// promise to give questions to user and collect data
   .prompt(questions)
+  //once the data comes in from the user it is use to fill out the template and create the file
   .then((answers) => {
-    // Use user feedback for... whatever!!
-    console.log(answers.why);
+writeToFile("README.md", generateMarkdown(answers));
+    console.log(answers);
   })
   .catch((error) => {
     if (error.isTtyError) {
@@ -150,3 +154,4 @@ inquirer
       // Something else went wrong
     }
   });
+, 
