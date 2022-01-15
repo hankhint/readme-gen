@@ -11,22 +11,23 @@ function renderLicenseSection(license) {
   }
   else {
     return `
-    ## License
-    The application uses the ${license} license.
-    ![Badge](https://img.shields.io/badge/License-${license}-blue.svg)
-    `;
+  ## License
+  The application uses the ${license} license.
+  ![Badge](https://img.shields.io/badge/License-${license}-blue.svg)
+  `;
   }
 }
 
 // TODO: Create a function to generate markdown for README
 function generateMarkdown(data) {
   return `
-  
-  # ${data.title}
+# ${data.title}
 
-  ## ${data.description}
+## Description
 
-  # Table of Contents 
+${data.description}
+
+# Table of Contents 
 * [Installation](#installation)
 * [Usage](#usage)
 * [License](#license)
@@ -37,18 +38,23 @@ function generateMarkdown(data) {
 # Installation
 The following necessary dependencies must be installed to run the application properly:
 
-  ## ${data.installation}
+## ${data.installation}
 
-  ## ${data.usage}
+## Usage
+${data.usage}
 
-  ${ renderLicenseSection(data.license) }
+ ${renderLicenseSection(data.license) }
 
-  ## ${data.contribution}
+## Contribution 
+  
+${data.contribution}
 
-  ## ${data.test}
+## Test
+  
+${data.test}
 
-  ## Questions
-   Send questions or comments to ${github}
+## Questions
+Send questions or comments to ${data.github}
 `;
 }
 

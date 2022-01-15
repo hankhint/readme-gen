@@ -159,15 +159,33 @@ inquirer
   // promise to give questions to user and collect data
   .prompt(questions)
   //once the data comes in from the user it is use to fill out the template and create the file
-  .then((answers) => {
-    fs.writeFile('dist/README.md', generateMarkdown, err);
-    console.log(answers);
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      console.log(error);
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
+  // .then((answers) => {
+  //   const readmeContent = generateMarkdown(answers)
+  //   console.log(readmeContent);
+  //   fs.writeFile('dist/README.md', readmeContent, err);
+  //   if (err) throw new Error(err);
+  //   console.log('Page created! Check out index.html in this directory to see it!');
+
+  // });
+
+  .then(function(data) {
+    const readmeContent = generateMarkdown(data);
+    fs.writeFile("dist/README.md", readmeContent, function(err) {
+      if (err) {
+        return console.log(err)
+      } else {
+        console.log("success")
+      }
+    });
+//     fs.writeFile("dist/README.md", generateMarkdown(data));
+// console.log(data);
+//   });
+  // .catch((error) => {
+  //   if (error.isTtyError) {
+  //     console.log(error);
+  //     // Prompt couldn't be rendered in the current environment
+  //   } else {
+  //     // Something else went wrong
+  //   }
+  //});
   });
