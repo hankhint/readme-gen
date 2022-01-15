@@ -160,7 +160,7 @@ inquirer
   .prompt(questions)
   //once the data comes in from the user it is use to fill out the template and create the file
   .then((answers) => {
-    writeFile("README.md", generateMarkdown(answers));
+    fs.writeFile('dist/README.md', generateMarkdown, err);
     console.log(answers);
   })
   .catch((error) => {
