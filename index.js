@@ -5,8 +5,6 @@ const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user input
 const questions = [
-  
-  
   //title prompt for user input
   {
     type: "input",
@@ -36,6 +34,8 @@ const questions = [
       }
     },
   },
+
+  //TOC is here in markdown file
 
   //installation prompt
   {
@@ -70,6 +70,21 @@ const questions = [
     },
   },
 
+  //license questions
+  {
+    type: "list",
+    name: "license",
+    message: "Which licenese will apply to this project?",
+    choices: [
+      "MIT",
+      "GNU-AGPLv3",
+      "GNU-LGPLv3",
+      "GNU-GPLv3",
+      "Mozilla-Public-License-2.0",
+      "Apache-License-2.0",
+    ],
+  },
+
   //contributing prompt
   {
     type: "input",
@@ -99,21 +114,6 @@ const questions = [
         return false;
       }
     },
-  },
-
-  //license questions
-  {
-    type: "list",
-    name: "license",
-    message: "Which licenese will apply to this project?",
-    choices: [
-      "MIT",
-      "GNU-AGPLv3",
-      "GNU-LGPLv3",
-      "GNU-GPLv3",
-      "Mozilla-Public-License-2.0",
-      "Apache-License-2.0",
-    ],
   },
 
   //github username prompt
@@ -155,22 +155,17 @@ const writeFile = (fileContent) => {
 // // TODO: Create a function to initialize app
 // function init() {}
 
-// // Function call to initialize app
-// init();
-// var mypromise = new Promise(function (resolve, reject){ })
-// //mypromise.catch
-// console.log(mypromise)
-
 inquirer
   // promise to give questions to user and collect data
   .prompt(questions)
   //once the data comes in from the user it is use to fill out the template and create the file
   .then((answers) => {
-    writeToFile("README.md", generateMarkdown(answers));
+    writeFile("README.md", generateMarkdown(answers));
     console.log(answers);
   })
   .catch((error) => {
     if (error.isTtyError) {
+      console.log(error);
       // Prompt couldn't be rendered in the current environment
     } else {
       // Something else went wrong

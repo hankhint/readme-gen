@@ -10,16 +10,10 @@ function renderLicenseSection(license) {
     return '';
   }
   else {
-    //if a licenese is selected then render the markdown with the license name and the license badge icon
-    //TODO render license link
     return `
     ## License
     The application uses the ${license} license.
     ![Badge](https://img.shields.io/badge/License-${license}-blue.svg)
-    
-  
-  
-    
     `;
   }
 }
@@ -30,17 +24,31 @@ function generateMarkdown(data) {
   
   # ${data.title}
 
-${ renderLicenseSection(data.license)}
+  ## ${data.description}
 
-  # ${data.description}
+  # Table of Contents 
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-  # ${data.installation}
+# Installation
+The following necessary dependencies must be installed to run the application properly:
 
-  # ${data.usage}
+  ## ${data.installation}
 
-  # ${data.contribution}
+  ## ${data.usage}
 
-  # ${data.tests}
+  ${ renderLicenseSection(data.license) }
+
+  ## ${data.contribution}
+
+  ## ${data.test}
+
+  ## Questions
+   Send questions or comments to ${github}
 `;
 }
 
