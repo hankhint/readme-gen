@@ -1,12 +1,13 @@
 //Include packages needed for this application
 const inquirer = require("inquirer");
-const fs = require('fs');
+const fs = require("fs");
 const generateMarkdown = require("./utils/generateMarkdown");
 
 // array of questions for user input
 const questions = [
-  //
-//title prompt for user input
+  
+  
+  //title prompt for user input
   {
     type: "input",
     name: "title",
@@ -20,6 +21,7 @@ const questions = [
       }
     },
   },
+
   //description prompt for user input
   {
     type: "input",
@@ -103,13 +105,17 @@ const questions = [
   {
     type: "list",
     name: "license",
-    message: "Which licenese will apply to this project? (Check ONLY one)",
-    choices: ["Apache License 2.0", "GNU GPLv2", "GNU GPLv3", "MIT", "ISC"],
-
-
-
-    
+    message: "Which licenese will apply to this project?",
+    choices: [
+      "MIT",
+      "GNU-AGPLv3",
+      "GNU-LGPLv3",
+      "GNU-GPLv3",
+      "Mozilla-Public-License-2.0",
+      "Apache-License-2.0",
+    ],
   },
+
   //github username prompt
   {
     type: "input",
@@ -126,11 +132,10 @@ const questions = [
   },
 ];
 
-
 //function for writing files
-const writeFile = fileContent => {
+const writeFile = (fileContent) => {
   return new Promise((resolve, reject) => {
-    fs.writeFile('./dist/index.html', fileContent, err => {
+    fs.writeFile("./dist/index.html", fileContent, (err) => {
       // if there's an error, reject the Promise and send the error to the Promise's `.catch()` method
       if (err) {
         reject(err);
@@ -141,7 +146,7 @@ const writeFile = fileContent => {
       // if everything went well, resolve the Promise and send the successful data to the `.then()` method
       resolve({
         ok: true,
-        message: 'File created!'
+        message: "File created!",
       });
     });
   });
@@ -157,11 +162,11 @@ const writeFile = fileContent => {
 // console.log(mypromise)
 
 inquirer
-// promise to give questions to user and collect data
+  // promise to give questions to user and collect data
   .prompt(questions)
   //once the data comes in from the user it is use to fill out the template and create the file
   .then((answers) => {
-writeToFile("README.md", generateMarkdown(answers));
+    writeToFile("README.md", generateMarkdown(answers));
     console.log(answers);
   })
   .catch((error) => {
@@ -171,4 +176,3 @@ writeToFile("README.md", generateMarkdown(answers));
       // Something else went wrong
     }
   });
-, 
