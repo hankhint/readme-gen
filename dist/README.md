@@ -1,9 +1,8 @@
 
-# ok
+# the last tim?
 
 ## Description
-
-ok
+it is a big thing
 
 # Table of Contents 
 * [Installation](#installation)
@@ -13,27 +12,25 @@ ok
 * [Tests](#tests)
 * [Questions](#questions)
 
-# Installation
+## Installation
 The following necessary dependencies must be installed to run the application properly:
 
-## ok
+fs and inquirer
 
 ## Usage
-ok
+run "node index"
 
- 
-  ## License
-  The application uses the MIT license.
-  ![Badge](https://img.shields.io/badge/License-MIT-blue.svg)
+
+## License
+The application uses the MIT license.
+![Badge](https://img.shields.io/badge/License-MIT-blue.svg)
   
 
 ## Contributing
-  
-ok
+fork it to contribute
 
 ## Tests
-  
-ok
+forthcoming
 
 ## Questions
-Send questions or comments to timestorm@gmail.com and find me on ok
+Send questions or comments to hankhint@gmail.com and find me on github https://github.com/hankhint

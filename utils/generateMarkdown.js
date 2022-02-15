@@ -10,9 +10,9 @@ function renderLicenseSection(license) {
   }
   else {
     return `
-  ## License
-  The application uses the ${license} license.
-  ![Badge](https://img.shields.io/badge/License-${license}-blue.svg)
+## License
+The application uses the ${license} license.
+![Badge](https://img.shields.io/badge/License-${license}-blue.svg)
   `;
   }
 }
@@ -23,7 +23,6 @@ function generateMarkdown(data) {
 # ${data.title}
 
 ## Description
-
 ${data.description}
 
 # Table of Contents 
@@ -34,26 +33,24 @@ ${data.description}
 * [Tests](#tests)
 * [Questions](#questions)
 
-# Installation
+## Installation
 The following necessary dependencies must be installed to run the application properly:
 
-## ${data.installation}
+${data.installation}
 
 ## Usage
 ${data.usage}
 
- ${renderLicenseSection(data.license) }
+${renderLicenseSection(data.license)}
 
 ## Contributing
-  
 ${data.contribution}
 
 ## Tests
-  
 ${data.test}
 
 ## Questions
-Send questions or comments to ${data.email} and find me on ${data.github}
+Send questions or comments to ${data.email} and find me on github https://github.com/${data.github}
 `;
 }
 
