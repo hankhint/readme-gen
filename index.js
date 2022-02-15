@@ -130,6 +130,20 @@ const questions = [
       }
     },
   },
+  //email prompt
+  {
+    type: "input",
+    name: "email",
+    message: "Enter your email (Required)",
+    validate: (emailInput) => {
+      if (emailInput) {
+        return true;
+      } else {
+        console.log("Please enter your email!");
+        return false;
+      }
+    },
+  },
 ];
 
 //function for writing files

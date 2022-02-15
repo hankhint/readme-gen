@@ -1,10 +1,9 @@
-// TODO: Create a function that returns a license badge based on which license is passed in
+// returns a license badge based on which license is passed in
 // If there is no license, return an empty string
 
 function renderLicenseSection(license) {
   
   //render license markdown
-
   //if no license is selected then return an empty string
   if (!license) {
     return '';
@@ -18,7 +17,7 @@ function renderLicenseSection(license) {
   }
 }
 
-// TODO: Create a function to generate markdown for README
+// function to generate markdown for README
 function generateMarkdown(data) {
   return `
 # ${data.title}
@@ -45,16 +44,16 @@ ${data.usage}
 
  ${renderLicenseSection(data.license) }
 
-## Contribution 
+## Contributing
   
 ${data.contribution}
 
-## Test
+## Tests
   
 ${data.test}
 
 ## Questions
-Send questions or comments to ${data.github}
+Send questions or comments to ${data.email} and find me on ${data.github}
 `;
 }
 
