@@ -14,8 +14,8 @@ This node application helps developers focus on developing by helping them make 
 
 # Installation
 The following necessary dependencies must be installed to run the application properly:
-** "fs": "^0.0.1-security"
-** "inquirer": "^6.5.2"
+* "fs": "^0.0.1-security"
+* "inquirer": "^6.5.2"
 
 Download the repo. After running "npm install" then run "node index" 
 
