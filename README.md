@@ -11,7 +11,6 @@ This node script helps developers quickly create professional readme files so th
 - [How To Use](#how-to-use)
 - [License](#license)
 - [Contributing](#contributing)
-- [Tests](#tests)
 - [Questions](#questions)
 
 ## Walkthrough Video
